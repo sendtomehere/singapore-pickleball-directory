@@ -1,19 +1,13 @@
 * {
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-/* Aggressive spacing reset */
-body, html, div, section, nav, header, main, h1, h2, h3, p {
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-/* Override any default margins */
-.header, .header *, .main-content, .main-content *, .tabs-container, .tabs-container * {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
+/* Clean Instagram-like spacing reset */
+body, html, div, section, nav, main, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -24,23 +18,50 @@ body {
 
 .container {
     max-width: 1400px;
-    margin: 0 auto !important;
-    padding: 10px !important;
-    padding-top: 5px !important;
-    padding-bottom: 5px !important;
+    margin: 0 auto;
+    padding: 20px;
     min-height: 100vh;
 }
 
 .header {
     text-align: center;
-    margin-bottom: 0px;
+    margin-bottom: 32px;
+    padding: 24px 0;
     color: white;
+    position: relative;
+}
+
+.admin-login-trigger {
+    position: absolute;
+    top: 24px;
+    right: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.admin-login-trigger:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .title {
     font-size: 3rem;
     font-weight: 700;
-    margin-bottom: 0px;
+    margin-bottom: 16px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
@@ -48,7 +69,7 @@ body {
     font-size: 1.2rem;
     font-weight: 300;
     opacity: 0.9;
-    margin-bottom: 0px;
+    margin-bottom: 16px;
 }
 
 .main-content {
@@ -65,13 +86,12 @@ body {
 .tabs-nav {
     display: flex;
     justify-content: center;
-    gap: 5px;
-    margin-top: 2px !important;
-    margin-bottom: 5px !important;
+    gap: 8px;
+    margin-bottom: 24px;
     background: white;
-    border-radius: 15px;
-    padding: 10px !important;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border-radius: 16px;
+    padding: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
 }
 
 .tab-btn {
@@ -107,9 +127,9 @@ body {
 .tab-panel {
     display: none;
     background: white;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
     animation: fadeIn 0.3s ease-in-out;
 }
 
@@ -662,11 +682,11 @@ body {
 }
 
 .public-submission {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 15px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 16px;
     margin-top: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 16px;
     backdrop-filter: blur(10px);
 }
 
