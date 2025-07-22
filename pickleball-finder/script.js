@@ -7,9 +7,11 @@ class PickleballFinder {
     initializeEventListeners() {
         const searchBtn = document.getElementById('searchBtn');
         const exportBtn = document.getElementById('exportBtn');
+        const adminLoginBtn = document.getElementById('adminLoginBtn');
 
         searchBtn.addEventListener('click', () => this.searchCourts());
         exportBtn.addEventListener('click', () => this.exportToCSV());
+        adminLoginBtn.addEventListener('click', () => this.showAdminLogin());
     }
 
     async searchCourts() {
@@ -162,6 +164,29 @@ class PickleballFinder {
         a.click();
         document.body.removeChild(a);
         window.URL.revokeObjectURL(url);
+    }
+
+    showAdminLogin() {
+        const password = prompt('Enter admin password:');
+        if (password === 'admin123') {
+            alert('Admin login successful!');
+            // Add admin functionality here
+            this.showAdminPanel();
+        } else if (password !== null) {
+            alert('Invalid password!');
+        }
+    }
+
+    showAdminPanel() {
+        // Simple admin panel - you can expand this
+        const adminOptions = confirm('Admin Panel\n\nChoose an option:\nOK = Refresh court data\nCancel = View logs');
+        
+        if (adminOptions) {
+            alert('Refreshing court data...');
+            this.searchCourts();
+        } else {
+            alert('Admin logs: Court searches performed successfully');
+        }
     }
 }
 

@@ -19,11 +19,12 @@ body {
 
 header {
     text-align: center;
-    margin-bottom: 20px;
-    padding: 20px 20px;
+    margin-bottom: 10px;
+    padding: 15px 20px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border-radius: 10px;
+    position: relative;
 }
 
 header h1 {
@@ -36,9 +37,28 @@ header p {
     opacity: 0.9;
 }
 
+.admin-login-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.admin-login-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
 .search-section {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .search-button {
