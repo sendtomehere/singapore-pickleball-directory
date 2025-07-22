@@ -124,6 +124,24 @@ function addCourt(event) {
         googleMapsLink: document.getElementById('googleMapsLink').value,
         instagramLink: document.getElementById('instagramLink').value
     };
+    
+    // Validation
+    if (!courtData.region) {
+        alert('Please select a region');
+        return;
+    }
+    if (!courtData.name.trim()) {
+        alert('Please enter a court name');
+        return;
+    }
+    if (!courtData.address.trim()) {
+        alert('Please enter an address');
+        return;
+    }
+    if (!courtData.googleMapsLink.trim()) {
+        alert('Please enter a Google Maps link');
+        return;
+    }
 
     if (editingCourtId) {
         // Update existing court
@@ -145,6 +163,9 @@ function addCourt(event) {
     
     // Reset form
     document.getElementById('courtForm').reset();
+    
+    // Show success message
+    alert(editingCourtId ? 'Court updated successfully!' : 'Court added successfully!');
 }
 
 function addCourtToRegion(court) {
