@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singapore Pickleball Courts Directory</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Singapore Pickleball Courts Finder</h1>
+            <p>Discover pickleball courts across Singapore with their contact details and booking information</p>
+        </header>
+
+        <div class="search-section">
+            <button id="searchBtn" class="search-button">Find Pickleball Courts</button>
+            <div id="loadingSpinner" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Searching for courts...</p>
+            </div>
+        </div>
+
+        <div id="results" class="results-section hidden">
+            <div class="results-header">
+                <h2>Found Courts</h2>
+                <button id="exportBtn" class="export-button">Export to CSV</button>
+            </div>
+            <div id="courtsContainer" class="courts-container"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
