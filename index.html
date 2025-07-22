@@ -3,27 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Singapore Pickleball Courts Directory</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Singapore Pickleball Courts Directory - Find Courts Near You</title>
+    <meta name="title" content="Singapore Pickleball Courts Directory - Find Courts Near You">
+    <meta name="description" content="Complete directory of pickleball courts across Singapore. Find courts by region (North, East, South, West, Central) with booking links, locations, and contact information.">
+    <meta name="keywords" content="Singapore pickleball courts, pickleball Singapore, sports courts Singapore, pickleball booking, North East South West Central Singapore courts, racket sports Singapore">
+    <meta name="author" content="Singapore Pickleball Directory">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yoursite.github.io/singapore-pickleball-directory/">
+    <meta property="og:title" content="Singapore Pickleball Courts Directory - Find Courts Near You">
+    <meta property="og:description" content="Complete directory of pickleball courts across Singapore. Find courts by region with booking links, locations, and contact information.">
+    <meta property="og:image" content="https://yoursite.github.io/singapore-pickleball-directory/og-image.png">
+    <meta property="og:locale" content="en_SG">
+    <meta property="og:site_name" content="Singapore Pickleball Directory">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yoursite.github.io/singapore-pickleball-directory/">
+    <meta property="twitter:title" content="Singapore Pickleball Courts Directory - Find Courts Near You">
+    <meta property="twitter:description" content="Complete directory of pickleball courts across Singapore. Find courts by region with booking links, locations, and contact information.">
+    <meta property="twitter:image" content="https://yoursite.github.io/singapore-pickleball-directory/og-image.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yoursite.github.io/singapore-pickleball-directory/">
+    
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="SG">
+    <meta name="geo.placename" content="Singapore">
+    <meta name="geo.position" content="1.3521;103.8198">
+    <meta name="ICBM" content="1.3521, 103.8198">
+    
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Singapore Pickleball Courts Directory",
+        "description": "Complete directory of pickleball courts across Singapore organized by regions",
+        "url": "https://yoursite.github.io/singapore-pickleball-directory/",
+        "author": {
+            "@type": "Organization",
+            "name": "Singapore Pickleball Directory"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "1.3521",
+            "longitude": "103.8198"
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "Singapore"
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://yoursite.github.io/singapore-pickleball-directory/#{search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
 </head>
 <body>
     <div class="container">
         <header class="header">
             <h1 class="title">🏓 Singapore Pickleball Courts Directory</h1>
-            <p class="subtitle">Comprehensive directory of pickleball courts across Singapore</p>
-            <div class="public-submission">
-                <p>🚀 Want to add a court? <a href="mailto:sendtomehere@gmail.com?subject=New Pickleball Court Submission&body=Please provide the following information:%0A%0ACourt Name:%0AAddress:%0ARegion (North/East/South/West/Central):%0AWebsite Link:%0ABooking Link:%0AGoogle Maps Link:%0AInstagram Link:%0A%0AThank you!">Send us an email</a></p>
-            </div>
+            <p class="subtitle">Find and discover pickleball courts across Singapore organized by regions. Book courts, get directions, and connect with local pickleball communities.</p>
+            <nav class="public-submission" role="navigation" aria-label="Court submission">
+                <p>🚀 Want to add a court? <a href="mailto:sendtomehere@gmail.com?subject=New Pickleball Court Submission&body=Please provide the following information:%0A%0ACourt Name:%0AAddress:%0ARegion (North/East/South/West/Central):%0AWebsite Link:%0ABooking Link:%0AGoogle Maps Link:%0AInstagram Link:%0A%0AThank you!" title="Submit a new pickleball court">Send us an email</a></p>
+            </nav>
         </header>
 
-        <div class="main-content">
+        <main class="main-content" role="main">
             <!-- Admin Panel (hidden by default) -->
-            <div id="adminPanel" class="admin-panel" style="display: none;">
+            <aside id="adminPanel" class="admin-panel" style="display: none;" role="dialog" aria-labelledby="adminFormTitle">
                 <div class="admin-header">
-                    <div class="drag-handle">≡≡≡</div>
-                    <h3 id="adminFormTitle">Add New Court (Admin)</h3>
-                    <button type="button" class="logout-btn" onclick="logout()">✕ Logout</button>
+                    <div class="drag-handle" aria-hidden="true">≡≡≡</div>
+                    <h2 id="adminFormTitle">Add New Court (Admin)</h2>
+                    <button type="button" class="logout-btn" onclick="logout()" aria-label="Logout from admin panel">✕ Logout</button>
                 </div>
                 <form id="courtForm" class="court-form">
                     <select id="regionSelect" required>
@@ -46,46 +111,56 @@
             </div>
 
             <!-- Tabs Navigation -->
-            <div class="tabs-container">
-                <div class="tabs-nav">
-                    <button class="tab-btn active" data-region="north">🌟 North</button>
-                    <button class="tab-btn" data-region="east">🌅 East</button>
-                    <button class="tab-btn" data-region="south">🏖️ South</button>
-                    <button class="tab-btn" data-region="west">🌇 West</button>
-                    <button class="tab-btn" data-region="central">🏙️ Central</button>
-                </div>
+            <section class="tabs-container">
+                <h2 class="sr-only">Pickleball Courts by Region</h2>
+                <nav class="tabs-nav" role="tablist" aria-label="Singapore regions">
+                    <button class="tab-btn active" data-region="north" role="tab" aria-selected="true" aria-controls="north-panel" id="north-tab">🌟 North</button>
+                    <button class="tab-btn" data-region="east" role="tab" aria-selected="false" aria-controls="east-panel" id="east-tab">🌅 East</button>
+                    <button class="tab-btn" data-region="south" role="tab" aria-selected="false" aria-controls="south-panel" id="south-tab">🏖️ South</button>
+                    <button class="tab-btn" data-region="west" role="tab" aria-selected="false" aria-controls="west-panel" id="west-tab">🌇 West</button>
+                    <button class="tab-btn" data-region="central" role="tab" aria-selected="false" aria-controls="central-panel" id="central-tab">🏙️ Central</button>
+                </nav>
                 
                 <div class="tabs-content">
-                    <div class="tab-panel active" id="north-panel" data-region="north">
+                    <div class="tab-panel active" id="north-panel" data-region="north" role="tabpanel" aria-labelledby="north-tab">
+                        <h3>North Singapore Pickleball Courts</h3>
                         <div class="courts-list" id="north-courts"></div>
                     </div>
                     
-                    <div class="tab-panel" id="east-panel" data-region="east">
+                    <div class="tab-panel" id="east-panel" data-region="east" role="tabpanel" aria-labelledby="east-tab" aria-hidden="true">
+                        <h3>East Singapore Pickleball Courts</h3>
                         <div class="courts-list" id="east-courts"></div>
                     </div>
                     
-                    <div class="tab-panel" id="south-panel" data-region="south">
+                    <div class="tab-panel" id="south-panel" data-region="south" role="tabpanel" aria-labelledby="south-tab" aria-hidden="true">
+                        <h3>South Singapore Pickleball Courts</h3>
                         <div class="courts-list" id="south-courts"></div>
                     </div>
                     
-                    <div class="tab-panel" id="west-panel" data-region="west">
+                    <div class="tab-panel" id="west-panel" data-region="west" role="tabpanel" aria-labelledby="west-tab" aria-hidden="true">
+                        <h3>West Singapore Pickleball Courts</h3>
                         <div class="courts-list" id="west-courts"></div>
                     </div>
                     
-                    <div class="tab-panel" id="central-panel" data-region="central">
+                    <div class="tab-panel" id="central-panel" data-region="central" role="tabpanel" aria-labelledby="central-tab" aria-hidden="true">
+                        <h3>Central Singapore Pickleball Courts</h3>
                         <div class="courts-list" id="central-courts"></div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
 
         <!-- Admin Login -->
-        <div id="adminLogin" class="admin-login" style="display: none;">
+        <div id="adminLogin" class="admin-login" style="display: none;" role="dialog" aria-labelledby="admin-title" aria-modal="true">
             <div class="login-modal">
-                <h3>Admin Access</h3>
-                <input type="password" id="adminPassword" placeholder="Password">
-                <button onclick="checkPassword()">Login</button>
-                <button onclick="closeAdminLogin()">Cancel</button>
+                <h3 id="admin-title">Admin Access</h3>
+                <form onsubmit="event.preventDefault(); checkPassword();" role="form">
+                    <label for="adminPassword" class="sr-only">Admin Password</label>
+                    <input type="password" id="adminPassword" placeholder="Admin Password" required aria-describedby="password-help">
+                    <div id="password-help" class="sr-only">Enter admin password to manage court listings</div>
+                    <button type="submit">Login</button>
+                    <button type="button" onclick="closeAdminLogin()">Cancel</button>
+                </form>
             </div>
         </div>
     </div>

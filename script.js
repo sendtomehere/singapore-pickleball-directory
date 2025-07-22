@@ -33,12 +33,23 @@ function setupTabs() {
 
 function switchToTab(region) {
     // Remove active class from all tabs and panels
-    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+    });
+    document.querySelectorAll('.tab-panel').forEach(panel => {
+        panel.classList.remove('active');
+        panel.setAttribute('aria-hidden', 'true');
+    });
     
     // Add active class to selected tab and panel
-    document.querySelector(`[data-region="${region}"].tab-btn`).classList.add('active');
-    document.querySelector(`#${region}-panel`).classList.add('active');
+    const activeTab = document.querySelector(`[data-region="${region}"].tab-btn`);
+    const activePanel = document.querySelector(`#${region}-panel`);
+    
+    activeTab.classList.add('active');
+    activeTab.setAttribute('aria-selected', 'true');
+    activePanel.classList.add('active');
+    activePanel.setAttribute('aria-hidden', 'false');
 }
 
 function makeDraggable() {
@@ -144,15 +155,18 @@ function addCourtToRegion(court) {
     courtItem.setAttribute('data-court-id', court.id);
     
     courtItem.innerHTML = `
-        <h4>🏓 ${court.name}</h4>
-        <div class="court-address">📍 ${court.address}</div>
-        <div class="court-links">
-            ${court.websiteLink ? `<a href="${court.websiteLink}" target="_blank">🌐 Website</a>` : '<span class="missing-link">🌐 Website: Not Available</span>'}
-            ${court.bookingLink ? `<a href="${court.bookingLink}" target="_blank">📅 Book Online</a>` : '<span class="missing-link">📅 Booking: Not Available</span>'}
-            <a href="${court.googleMapsLink}" target="_blank">📍 Google Maps</a>
-            ${court.instagramLink ? `<a href="${court.instagramLink}" target="_blank">📷 Instagram</a>` : '<span class="missing-link">📷 Instagram: Not Available</span>'}
-            ${adminMode ? `<button onclick="editCourt(${court.id})" class="edit-btn">✏️ Edit</button> <button onclick="deleteCourt(${court.id})" class="delete-btn">🗑️ Delete</button>` : ''}
-        </div>
+        <article itemscope itemtype="https://schema.org/SportsActivityLocation">
+            <h4 itemprop="name">🏓 ${court.name}</h4>
+            <div class="court-address" itemprop="address">📍 ${court.address}</div>
+            <meta itemprop="sport" content="Pickleball">
+            <div class="court-links">
+                ${court.websiteLink ? `<a href="${court.websiteLink}" target="_blank" rel="noopener noreferrer" itemprop="url" aria-label="Visit ${court.name} official website">🌐 Website</a>` : '<span class="missing-link">🌐 Website: Not Available</span>'}
+                ${court.bookingLink ? `<a href="${court.bookingLink}" target="_blank" rel="noopener noreferrer" aria-label="Book court at ${court.name}">📅 Book Online</a>` : '<span class="missing-link">📅 Booking: Not Available</span>'}
+                <a href="${court.googleMapsLink}" target="_blank" rel="noopener noreferrer" aria-label="View ${court.name} on Google Maps">📍 Google Maps</a>
+                ${court.instagramLink ? `<a href="${court.instagramLink}" target="_blank" rel="noopener noreferrer" aria-label="Follow ${court.name} on Instagram">📷 Instagram</a>` : '<span class="missing-link">📷 Instagram: Not Available</span>'}
+                ${adminMode ? `<button onclick="editCourt(${court.id})" class="edit-btn" aria-label="Edit ${court.name}">✏️ Edit</button> <button onclick="deleteCourt(${court.id})" class="delete-btn" aria-label="Delete ${court.name}">🗑️ Delete</button>` : ''}
+            </div>
+        </article>
     `;
     
     regionContainer.appendChild(courtItem);
