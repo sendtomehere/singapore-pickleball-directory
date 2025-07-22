@@ -19,14 +19,14 @@ body {
 
 .header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
     color: white;
 }
 
 .title {
     font-size: 3rem;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
@@ -38,7 +38,7 @@ body {
 
 .main-content {
     position: relative;
-    padding: 20px 0;
+    padding: 0;
 }
 
 .tabs-container {
@@ -51,7 +51,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 5px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     background: white;
     border-radius: 15px;
     padding: 10px;
@@ -646,7 +646,7 @@ body {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     padding: 15px;
-    margin-top: 15px;
+    margin-top: 5px;
     backdrop-filter: blur(10px);
 }
 
